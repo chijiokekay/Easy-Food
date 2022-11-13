@@ -2,10 +2,46 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:background="@drawable/ef_logo_2"
-    tools:context=".MainActivity">
+    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
+    tools:context="uk.ac.tees.b1325384.easyfood.MainActivity">
 
+
+    <LinearLayout
+        android:layout_width="398dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/btnSignUp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/btnSignUp"
+            android:text="@string/sign_up"
+            android:textColor="#4E342E"
+            app:buttonColor="@color/btnSignUp"
+            app:shadowColor="@android:color/black"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/btnSignIn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/btnSignActive"
+            android:text="@string/sign_in"
+            android:textColor="#4E342E"
+            app:buttonColor="@color/btnSignActive"
+            app:shadowColor="@android:color/black"
+            tools:ignore="TextContrastCheck" />
+    </LinearLayout>
 
 </RelativeLayout>
