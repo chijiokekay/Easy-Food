@@ -3,4 +3,8 @@
     <string name="signup">SignUp</string>
     <string name="sign_in">sign In</string>
     <string name="sign_up">sign Up</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="_0123456789">0123456789</string>
+    <string name="password">Password</string>
+    <string name="_8352">8352</string>
 </resources>
