@@ -15,4 +15,7 @@
 
     <color name="btnSignUp">#39996b</color>
     <color name="btnSignActive">#A9d440</color>
+
+    <color name="overlayBackground">#7f333639</color>
+    <color name="ocverlayActionBar">#0e0d0e</color>
 </resources>
