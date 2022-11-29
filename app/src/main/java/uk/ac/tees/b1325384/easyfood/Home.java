@@ -91,7 +91,6 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
         //Load the Menu
         recyclerView = binding.appBarHome.recyclerView;
-
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
