@@ -20,7 +20,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.fragment.navHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -56,7 +56,6 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         toolbar.setTitle("Menu");
         //setSupportActionBar(toolbar);
 
-
         //Initiate Firebase
         database = FirebaseDatabase.getInstance();
         category = database.getReference("Category");
@@ -82,12 +81,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
                 .setOpenableLayout(drawer)
                 .build();
-//        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
-//                .findFragmentById(R.id.nav_host_fragment_content_home);
-//        NavController navController = navHostFragment.getNavController();
-////        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
-//        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-//        NavigationUI.setupWithNavController(navigationView, navController);
+
 
 
         //Set Name for user
@@ -96,11 +90,10 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         txtFullName.setText(Common.currentUser.getName());
 
         //Load the Menu
-        recyclerView = binding.appBarHome.recyclerView;
-//        recyclerView.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
+        recyclerView = binding.appBarHome.recyclerView
 
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager)
 
         loadMenu();
 
@@ -124,7 +117,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
             }
         };
-        recyclerView.setAdapter(adapter);
+        recyclerView.setAdapter(adapter)
     }
 
     @Override
