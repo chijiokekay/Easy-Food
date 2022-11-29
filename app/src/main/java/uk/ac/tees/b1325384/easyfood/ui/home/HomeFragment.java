@@ -25,7 +25,7 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final RecyclerView recyclerView = binding.recyclerView
+        final RecyclerView recyclerView = binding.recyclerView;
       //  homeViewModel.getText().observe(getViewLifecycleOwner(), "setText);
         return root;
     }
