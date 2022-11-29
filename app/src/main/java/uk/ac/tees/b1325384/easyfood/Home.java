@@ -20,6 +20,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -43,7 +44,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
     TextView txtFullName;
 
-    RecyclerView recycler_menu;
+    RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
 
     @Override
@@ -54,6 +55,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Menu");
         //setSupportActionBar(toolbar);
+
 
         //Initiate Firebase
         database = FirebaseDatabase.getInstance();
@@ -80,9 +82,12 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
                 .setOpenableLayout(drawer)
                 .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
+//        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
+//                .findFragmentById(R.id.nav_host_fragment_content_home);
+//        NavController navController = navHostFragment.getNavController();
+////        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
+//        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+//        NavigationUI.setupWithNavController(navigationView, navController);
 
 
         //Set Name for user
@@ -91,10 +96,11 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         txtFullName.setText(Common.currentUser.getName());
 
         //Load the Menu
-        recycler_menu = (RecyclerView) findViewById(R.id.recycler_menu);
-        recycler_menu.setHasFixedSize(true);
+        recyclerView = binding.appBarHome.recyclerView;
+//        recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
-        recycler_menu.setLayoutManager(layoutManager);
+        recyclerView.setLayoutManager(layoutManager);
+
 
         loadMenu();
 
@@ -118,7 +124,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
             }
         };
-        recycler_menu.setAdapter(adapter);
+        recyclerView.setAdapter(adapter);
     }
 
     @Override
