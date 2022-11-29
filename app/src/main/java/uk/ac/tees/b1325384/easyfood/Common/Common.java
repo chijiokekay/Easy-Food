@@ -1,4 +1,4 @@
-package Common;
+package uk.ac.tees.b1325384.easyfood.Common;
 
 import uk.ac.tees.b1325384.easyfood.Model.User;
 

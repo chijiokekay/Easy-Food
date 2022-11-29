@@ -4,13 +4,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.Toolbar;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -18,9 +20,13 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import Common.Common;
+import uk.ac.tees.b1325384.easyfood.Common.Common;
+import uk.ac.tees.b1325384.easyfood.Interface.ItemClickListener;
+import uk.ac.tees.b1325384.easyfood.Model.Category;
+import uk.ac.tees.b1325384.easyfood.ViewHolder.MenuViewHolder;
 import uk.ac.tees.b1325384.easyfood.databinding.ActivityHomeBinding;
 
 public class Home extends AppCompatActivity {
@@ -77,11 +83,38 @@ public class Home extends AppCompatActivity {
 
         //Set Name for user
         View headerView = navigationView.getHeaderView(0);
-        txtFullName = (TextView) findViewById(R.id.txtFullName);
+        txtFullName = (TextView)headerView.findViewById(R.id.txtFullName);
         txtFullName.setText(Common.currentUser.getName());
 
         //Load the Menu
+        recycler_menu = (RecyclerView) findViewById(R.id.recycler_menu);
+        recycler_menu.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        recycler_menu.setLayoutManager(layoutManager);
 
+        loadMenu();
+
+    }
+
+    private void loadMenu() {
+
+        FirebaseRecyclerAdapter<Category, MenuViewHolder> adapter = new FirebaseRecyclerAdapter<Category, MenuViewHolder>(Category.class,R.layout.menu_item,MenuViewHolder.class,category) {
+            @Override
+            protected void populateViewHolder(MenuViewHolder viewHolder, Category model, int position) {
+                viewHolder.txtMenuName.setText(model.getName());
+                Picasso.with(getBaseContext()).load(model.getImage())
+                        .into(viewHolder.imageView);
+                final Category clickitem = model;
+                viewHolder.setItemClickListener(new ItemClickListener() {
+                    @Override
+                    public void onClick(View view, int position, boolean isLongClick) {
+                        Toast.makeText(Home.this,""+clickitem.getName(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+            }
+        };
+        recycler_menu.setAdapter(adapter);
     }
 
     @Override
