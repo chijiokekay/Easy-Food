@@ -44,7 +44,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
     TextView txtFullName;
 
-    RecyclerView recyclerView;
+    RecyclerView recyclerViow;
     RecyclerView.LayoutManager layoutManager;
 
     @Override
