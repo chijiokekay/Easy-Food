@@ -20,7 +20,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.navigation.fragment.navHostFragment;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -90,10 +90,10 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         txtFullName.setText(Common.currentUser.getName());
 
         //Load the Menu
-        recyclerView = binding.appBarHome.recyclerView
+        recyclerView = binding.appBarHome.recyclerView;
 
         layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager)
+        recyclerView.setLayoutManager(layoutManager);
 
         loadMenu();
 
@@ -117,7 +117,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
             }
         };
-        recyclerView.setAdapter(adapter)
+        recyclerView.setAdapter(adapter);
     }
 
     @Override
