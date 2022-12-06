@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@drawable/ef_logo_2"
+    android:animateLayoutChanges="true"
+    android:orientation="vertical"
+    android:layout_gravity="center"
     xmlns:fbutton="http://schemas.android.com/apk/res-auto"
     tools:context="uk.ac.tees.b1325384.easyfood.MainActivity">
 
@@ -12,11 +15,10 @@
     <LinearLayout
         android:layout_width="398dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_marginBottom="15dp"
         android:orientation="horizontal"
-        android:weightSum="2">
-
+        android:weightSum="2"
+        >
         <Button
             android:id="@+id/btnSignUp"
             android:layout_width="0dp"
@@ -29,7 +31,6 @@
             app:buttonColor="@color/btnSignUp"
             app:shadowColor="@android:color/black"
             tools:ignore="TextContrastCheck" />
-
         <Button
             android:id="@+id/btnSignIn"
             android:layout_width="0dp"
@@ -43,5 +44,137 @@
             app:shadowColor="@android:color/black"
             tools:ignore="TextContrastCheck" />
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/signInLayout"
+        android:visibility="gone"
+        android:orientation="vertical"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-</RelativeLayout>
+        <EditText
+            android:id="@+id/edtPhone"
+            android:hint="@string/phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@android:color/black"
+            android:text="@string/_0123456789"
+            android:textColor="@android:color/black"
+            android:textSize="34sp"
+            android:inputType="phone"
+            />
+
+
+        <EditText
+            android:id="@+id/edtPassword"
+            android:hint="@string/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@android:color/black"
+            android:text="@string/_8352"
+            android:textColor="@android:color/black"
+            android:textSize="34sp"
+            android:inputType="textPassword"
+            />
+
+        <Button
+            android:id="@+id/btnLaunchSignIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="@color/btnSignActive"
+            android:text="@string/sign_in"
+            android:textColor="#4E342E"
+            app:buttonColor="@color/btnSignActive"
+            app:shadowColor="@android:color/black"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/signUpLayout"
+        android:orientation="vertical"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/edtSignUpPhone"
+            android:hint="@string/phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@android:color/black"
+            android:text="@string/_0123456789"
+            android:textColor="@android:color/black"
+            android:textSize="34sp"
+            android:inputType="phone"
+            />
+
+        <EditText
+            android:id="@+id/edtSignUpName"
+            android:hint="Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@android:color/black"
+            android:text="Harry Kane"
+            android:textColor="@android:color/black"
+            android:textSize="34sp"
+            android:inputType="text"
+            />
+
+
+        <EditText
+            android:id="@+id/edtSignUpPassword"
+            android:hint="@string/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@android:color/black"
+            android:text="@string/_8352"
+            android:textColor="@android:color/black"
+            android:textSize="34sp"
+            android:inputType="textPassword"
+            />
+
+
+        <Button
+            android:id="@+id/btnLaunchSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="@color/btnSignUp"
+            android:text="Sign Up"
+            android:textColor="#4E342E"
+            app:buttonColor="@color/btnSignUp"
+            app:shadowColor="@android:color/black"
+            />
+
+
+    </LinearLayout>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnGoBack"
+        android:text="Back"
+        android:textColor="#ffffff"
+        app:buttonColor="@color/btnSignActive"
+        app:shadowColor="@android:color/black"
+        />
+
+</LinearLayout>

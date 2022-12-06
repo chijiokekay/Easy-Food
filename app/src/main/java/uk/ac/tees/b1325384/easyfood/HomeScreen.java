@@ -7,7 +7,6 @@ import android.view.Menu;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -16,11 +15,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -32,45 +29,24 @@ import uk.ac.tees.b1325384.easyfood.Common.Common;
 import uk.ac.tees.b1325384.easyfood.Interface.ItemClickListener;
 import uk.ac.tees.b1325384.easyfood.Model.Category;
 import uk.ac.tees.b1325384.easyfood.ViewHolder.MenuViewHolder;
-import uk.ac.tees.b1325384.easyfood.databinding.ActivityHomeBinding;
+import uk.ac.tees.b1325384.easyfood.databinding.ActivityHomeScreenBinding;
 
-public class Home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class HomeScreen extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private AppBarConfiguration mAppBarConfiguration;
-    private ActivityHomeBinding binding;
+    private ActivityHomeScreenBinding binding;
 
-    FirebaseDatabase database;
-    DatabaseReference category;
-
-    TextView txtFullName;
-
-    RecyclerView recyclerView;
-    RecyclerView.LayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
 
 
 
-        //Initiate Firebase
-        database = FirebaseDatabase.getInstance();
-        category = database.getReference("Category");
-
-
-
-        binding = ActivityHomeBinding.inflate(getLayoutInflater());
+        binding = ActivityHomeScreenBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-//        Toolbar toolbar = binding.appBarHome.toolbar;
-//        toolbar.setTitle("Menu");
-//        setSupportActionBar(toolbar);
-
-        setSupportActionBar(binding.appBarHome.toolbar);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ef_logo_2);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        binding.appBarHome.fab.setOnClickListener(new View.OnClickListener() {
+        binding.appBarHomeScreen.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -87,53 +63,21 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 .build();
 
 
-
-        //Set Name for user
-        View headerView = navigationView.getHeaderView(0);
-        txtFullName = (TextView)headerView.findViewById(R.id.txtFullName);
-        txtFullName.setText(Common.currentUser.getName());
-
-        //Load the Menu
-        recyclerView = binding.appBarHome.recyclerView;
-        layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-
-        loadMenu();
-
-    }
-
-    private void loadMenu() {
-
-        FirebaseRecyclerAdapter<Category, MenuViewHolder> adapter = new FirebaseRecyclerAdapter<Category, MenuViewHolder>(Category.class,R.layout.menu_item,MenuViewHolder.class,category) {
-            @Override
-            protected void populateViewHolder(MenuViewHolder viewHolder, Category model, int position) {
-                viewHolder.txtMenuName.setText(model.getName());
-                Picasso.with(getBaseContext()).load(model.getImage())
-                        .into(viewHolder.imageView);
-                final Category clickitem = model;
-                viewHolder.setItemClickListener(new ItemClickListener() {
-                    @Override
-                    public void onClick(View view, int position, boolean isLongClick) {
-                        Toast.makeText(Home.this,""+clickitem.getName(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-            }
-        };
-        recyclerView.setAdapter(adapter);
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home_screen);
+        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+        NavigationUI.setupWithNavController(navigationView, navController);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.home, menu);
+        getMenuInflater().inflate(R.menu.home_screen, menu);
         return true;
     }
 
-
     @Override
     public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home_screen);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }

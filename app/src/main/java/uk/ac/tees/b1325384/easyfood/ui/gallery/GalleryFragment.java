@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import uk.ac.tees.b1325384.easyfood.databinding.FragmentGalleryBinding;
 
+
 public class GalleryFragment extends Fragment {
 
     private FragmentGalleryBinding binding;
