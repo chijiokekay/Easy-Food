@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import uk.ac.tees.b1325384.easyfood.Model.Category;
 import uk.ac.tees.b1325384.easyfood.databinding.FragmentGalleryBinding;
 
 
@@ -24,9 +25,10 @@ public class GalleryFragment extends Fragment {
 
         binding = FragmentGalleryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
+        Category pickFood = GalleryFragmentArgs.fromBundle(getArguments()).getFoodItem();
         final TextView textView = binding.textGallery;
-        galleryViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        textView.setText(pickFood.getName());
+//        galleryViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

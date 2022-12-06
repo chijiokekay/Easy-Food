@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,6 +23,7 @@ import com.squareup.picasso.Picasso;
 import uk.ac.tees.b1325384.easyfood.Common.Common;
 import uk.ac.tees.b1325384.easyfood.HomeScreen;
 import uk.ac.tees.b1325384.easyfood.Interface.ItemClickListener;
+import uk.ac.tees.b1325384.easyfood.MainActivity;
 import uk.ac.tees.b1325384.easyfood.Model.Category;
 import uk.ac.tees.b1325384.easyfood.R;
 import uk.ac.tees.b1325384.easyfood.ViewHolder.MenuViewHolder;
@@ -86,6 +88,7 @@ public class HomeFragment extends Fragment {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
                         Toast.makeText(getContext(),""+clickitem.getName(), Toast.LENGTH_SHORT).show();
+                        Navigation.findNavController(view).navigate(HomeFragmentDirections.actionNavHomeToNavGallery2(model));
                     }
                 });
 
