@@ -52,9 +52,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Menu");
-        //setSupportActionBar(toolbar);
+
 
         //Initiate Firebase
         database = FirebaseDatabase.getInstance();
@@ -65,7 +63,13 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+//        Toolbar toolbar = binding.appBarHome.toolbar;
+//        toolbar.setTitle("Menu");
+//        setSupportActionBar(toolbar);
+
         setSupportActionBar(binding.appBarHome.toolbar);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ef_logo_2);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         binding.appBarHome.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

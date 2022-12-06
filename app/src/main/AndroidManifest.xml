@@ -15,6 +15,15 @@
         android:theme="@style/Theme.EasyFood"
         tools:targetApi="31">
         <activity
+            android:name=".NavTese"
+            android:exported="false"
+            android:label="@string/title_activity_nav_tese"
+            android:theme="@style/Theme.EasyFood.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".FoodList"
             android:exported="false">
             <meta-data
