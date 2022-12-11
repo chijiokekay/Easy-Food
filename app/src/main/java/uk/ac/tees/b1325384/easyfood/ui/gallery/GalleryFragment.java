@@ -30,7 +30,6 @@ import uk.ac.tees.b1325384.easyfood.ViewHolder.MenuViewHolder;
 import uk.ac.tees.b1325384.easyfood.databinding.FragmentGalleryBinding;
 import uk.ac.tees.b1325384.easyfood.ui.home.HomeFragmentDirections;
 
-
 public class GalleryFragment extends Fragment {
 
     private FragmentGalleryBinding binding;
