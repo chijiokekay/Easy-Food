@@ -79,13 +79,20 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
         int id = item.getItemId();
+
         if (id == R.id.nav_menu) {
+
         } else if (id == R.id.nav_orders) {
+
         } else if (id == R.id.nav_log_out) {
+
         }
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
