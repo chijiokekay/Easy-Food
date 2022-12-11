@@ -50,9 +50,9 @@ public class FoodDetailFragment extends Fragment {
         binding.btnCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new Database(this).addToCart(new Order(
 
-                ));
+
+
             }
         });
 
