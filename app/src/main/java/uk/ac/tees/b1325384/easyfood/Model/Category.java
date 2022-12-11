@@ -3,7 +3,8 @@ package uk.ac.tees.b1325384.easyfood.Model;
 import android.media.Image;
 
 import java.io.Serializable;
-publi class Category implements Serializable {
+
+public class Category implements Serializable {
     private String Name;
     private String Image;
     private String CategoryId;
