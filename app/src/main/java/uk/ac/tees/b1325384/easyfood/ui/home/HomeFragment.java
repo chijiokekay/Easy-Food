@@ -1,5 +1,6 @@
 package uk.ac.tees.b1325384.easyfood.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,6 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import uk.ac.tees.b1325384.easyfood.Common.Common;
+import uk.ac.tees.b1325384.easyfood.FoodList;
 import uk.ac.tees.b1325384.easyfood.HomeScreen;
 import uk.ac.tees.b1325384.easyfood.Interface.ItemClickListener;
 import uk.ac.tees.b1325384.easyfood.MainActivity;
@@ -89,6 +91,7 @@ public class HomeFragment extends Fragment {
                     public void onClick(View view, int position, boolean isLongClick) {
                         Toast.makeText(getContext(),""+clickitem.getName(), Toast.LENGTH_SHORT).show();
                         Navigation.findNavController(view).navigate(HomeFragmentDirections.actionNavHomeToNavGallery2(model));
+
                     }
                 });
 
