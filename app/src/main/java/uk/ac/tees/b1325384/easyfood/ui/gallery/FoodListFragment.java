@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -16,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -26,11 +26,9 @@ import uk.ac.tees.b1325384.easyfood.Model.Category;
 import uk.ac.tees.b1325384.easyfood.Model.Food;
 import uk.ac.tees.b1325384.easyfood.R;
 import uk.ac.tees.b1325384.easyfood.ViewHolder.FoodListViewHolder;
-import uk.ac.tees.b1325384.easyfood.ViewHolder.MenuViewHolder;
 import uk.ac.tees.b1325384.easyfood.databinding.FragmentGalleryBinding;
-import uk.ac.tees.b1325384.easyfood.ui.home.HomeFragmentDirections;
 
-public class GalleryFragment extends Fragment {
+public class FoodListFragment extends Fragment {
 
     private FragmentGalleryBinding binding;
 
@@ -45,18 +43,20 @@ public class GalleryFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        GalleryViewModel galleryViewModel =
-                new ViewModelProvider(this).get(GalleryViewModel.class);
+        FoodListViewModel foodListViewModel =
+                new ViewModelProvider(this).get(FoodListViewModel.class);
 
         binding = FragmentGalleryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        Category pickFood = GalleryFragmentArgs.fromBundle(getArguments()).getFoodItem();
+        Category pickFood = FoodListFragmentArgs.fromBundle(getArguments()).getFoodItem();
 
 
 
         //Initiate Firebase
         database = FirebaseDatabase.getInstance();
         foodList = database.getReference("Foods");
+
+
 
 
         //Set Name for user
@@ -94,7 +94,7 @@ public class GalleryFragment extends Fragment {
                     public void onClick(View view, int position, boolean isLongClick) {
 //                        Toast.makeText(getContext(),""+clickitem.getName(), Toast.LENGTH_SHORT).show();
 //                        Navigation.findNavController(view).navigate(HomeFragmentDirections.actionNavHomeToNavGallery2(model));
-
+                    Navigation.findNavController(view).navigate(FoodListFragmentDirections.actionNavGalleryToFoodDetailFragment(fooditem));
                     }
                 });
 

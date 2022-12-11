@@ -1,6 +1,8 @@
 package uk.ac.tees.b1325384.easyfood.Model;
 
-public class Food {
+import java.io.Serializable;
+
+public class Food implements Serializable {
     private String Name, Image, Description, Price, Discount, MenuId;
 
     public Food() {

@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -49,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
         edtSignUpPhone = (EditText) signUpLayout.findViewById(R.id.edtSignUpPhone);
         edtSignUpPassword = (EditText) signUpLayout.findViewById(R.id.edtSignUpPassword);
         btnLaunchSignUp = (Button) signUpLayout.findViewById(R.id.btnLaunchSignUp);
+
+
 
 
         btnSignUp = (Button) findViewById(R.id.btnSignUp);
@@ -110,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
                             mDialog.dismiss();
                             //dataSnapshot = null;
                             User user = snapshot.child(edtPhone.getText().toString()).getValue(User.class);
+                            user.setPhone(edtPhone.getText().toString());//Here we set Phone
                             if (user != null) {
                                 if (user.getPassword().equals(edtPassword.getText().toString())) {
                                     //Toast.makeText(SignIn.this, "Sign in successfull !", Toast.LENGTH_SHORT).show();
@@ -158,9 +162,12 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(MainActivity.this, "Phone Number Already exists", Toast.LENGTH_SHORT).show();
                         } else {
                             mDialog.dismiss();
-                            User user = new User(edtSignUpName.getText().toString(), edtSignUpPassword.getText().toString());
+                            User user = new User(edtSignUpName.getText().toString(), edtSignUpPassword.getText().toString(),edtSignUpPhone.getText().toString());
                             table_user.child(edtSignUpPhone.getText().toString()).setValue(user);
                             Toast.makeText(MainActivity.this, "Sign Up Successful", Toast.LENGTH_SHORT).show();
+                            Intent homeIntent = new Intent(MainActivity.this, HomeScreen.class);
+                            Common.currentUser = user;
+                            startActivity(homeIntent);
                             finish();
                         }
                     }
