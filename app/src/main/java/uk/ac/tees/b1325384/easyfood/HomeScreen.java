@@ -1,4 +1,4 @@
-package uk.ac.tees.b1325384.easyfood;
+packag uk.ac.tees.b1325384.easyfood;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -31,22 +31,20 @@ import uk.ac.tees.b1325384.easyfood.Model.Category;
 import uk.ac.tees.b1325384.easyfood.ViewHolder.MenuViewHolder;
 import uk.ac.tees.b1325384.easyfood.databinding.ActivityHomeScreenBinding;
 
-public class HomeScreen extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class HomeScree extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private AppBarConfiguration mAppBarConfiguration;
-    private ActivityHomeScreenBinding binding;
-
+    private ActivityHomeScreenBindin binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
 
-
-        binding = ActivityHomeScreenBinding.inflate(getLayoutInflater());
+        bindin = ActivityHomeScreenBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.appBarHomeScreen.fab.setOnClickListener(new View.OnClickListener() {
+        bindin.appBarHomeScreen.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -61,9 +59,7 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
                 .setOpenableLayout(drawer)
                 .build();
-
-
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home_screen);
+        NavControlle navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home_screen);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
     }
@@ -71,13 +67,13 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.home_screen, menu);
+        getMenuInflater().inflate(R.menu.home_screen, menu)
         return true;
     }
 
     @Override
     public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home_screen);
+        NavControlle navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home_screen);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
