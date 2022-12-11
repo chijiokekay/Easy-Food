@@ -15,7 +15,9 @@ import android.view.ViewGroup;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.squareup.picasso.Picasso;
 
+import uk.ac.tees.b1325384.easyfood.Database.Database;
 import uk.ac.tees.b1325384.easyfood.Model.Food;
+import uk.ac.tees.b1325384.easyfood.Model.Order;
 import uk.ac.tees.b1325384.easyfood.databinding.FragmentFoodDetailBinding;
 import uk.ac.tees.b1325384.easyfood.ui.gallery.FoodListFragmentArgs;
 
@@ -45,6 +47,14 @@ public class FoodDetailFragment extends Fragment {
         binding.foodPrice.setText(foodItem.getPrice());
         binding.foodName.setText(foodItem.getName());
         binding.foodDescription.setText(foodItem.getDescription());
+        binding.btnCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new Database(this).addToCart(new Order(
+
+                ));
+            }
+        });
 
 
         return root;
