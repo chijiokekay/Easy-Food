@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.squareup.picasso.Picasso;
@@ -50,8 +51,15 @@ public class FoodDetailFragment extends Fragment {
         binding.btnCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                new Database(getContext()).addToCart(new Order(
+                        foodItem.getFoodId(),
+                        foodItem.getName(),
+                        binding.quantityEdittext.getText().toString(),
+                        foodItem.getPrice(),
+                        foodItem.getDiscount()
+                ));
 
-
+                Toast.makeText(getContext(), "Added to Cart", Toast.LENGTH_SHORT).show();
 
             }
         });

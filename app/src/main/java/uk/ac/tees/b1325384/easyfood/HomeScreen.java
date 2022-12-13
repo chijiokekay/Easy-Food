@@ -1,5 +1,6 @@
 package uk.ac.tees.b1325384.easyfood;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -30,6 +31,7 @@ import uk.ac.tees.b1325384.easyfood.Interface.ItemClickListener;
 import uk.ac.tees.b1325384.easyfood.Model.Category;
 import uk.ac.tees.b1325384.easyfood.ViewHolder.MenuViewHolder;
 import uk.ac.tees.b1325384.easyfood.databinding.ActivityHomeScreenBinding;
+import uk.ac.tees.b1325384.easyfood.ui.home.HomeFragment;
 
 public class HomeScreen extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -47,8 +49,8 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
         binding.appBarHomeScreen.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent cartIntent = new Intent(HomeScreen.this,Cart.class);
+                startActivity(cartIntent);
             }
         });
         DrawerLayout drawer = binding.drawerLayout;

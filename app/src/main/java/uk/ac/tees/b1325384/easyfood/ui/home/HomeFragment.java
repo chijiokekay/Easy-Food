@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -54,6 +55,8 @@ public class HomeFragment extends Fragment {
         //Initiate Firebase
         database = FirebaseDatabase.getInstance();
         category = database.getReference("Category");
+
+
 
 
         //Set Name for user

@@ -3,18 +3,27 @@ package uk.ac.tees.b1325384.easyfood.Model;
 import java.io.Serializable;
 
 public class Food implements Serializable {
-    private String Name, Image, Description, Price, Discount, MenuId;
+    private String Name, Image, Description, Price, Discount, MenuId,FoodId;
 
     public Food() {
     }
 
-    public Food(String name, String image, String description, String price, String discount, String menuId) {
+    public String getFoodId() {
+        return FoodId;
+    }
+
+    public void setFoodId(String foodId) {
+        FoodId = foodId;
+    }
+
+    public Food(String name, String image, String description, String price, String discount, String menuId, String foodId) {
         Name = name;
         Image = image;
         Description = description;
         Price = price;
         Discount = discount;
         MenuId = menuId;
+        FoodId = foodId;
     }
 
     public String getName() {
