@@ -17,34 +17,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/edtComment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:text="Name"
-        app:layout_constraintEnd_toEndOf="@+id/place_autocomplete_fragment"
-        app:layout_constraintStart_toStartOf="@+id/place_autocomplete_fragment"
-        app:layout_constraintTop_toBottomOf="@+id/place_autocomplete_fragment" />
-
-    <Button
-        android:id="@+id/btnAccept"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Accept"
-        app:layout_constraintEnd_toEndOf="@+id/edtComment"
-        app:layout_constraintStart_toStartOf="@+id/edtComment"
-        app:layout_constraintTop_toBottomOf="@+id/edtComment" />
-
-    <Button
-        android:id="@+id/btnCancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cancel"
-        app:layout_constraintEnd_toEndOf="@+id/btnAccept"
-        app:layout_constraintStart_toStartOf="@+id/btnAccept"
-        app:layout_constraintTop_toBottomOf="@+id/btnAccept" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
