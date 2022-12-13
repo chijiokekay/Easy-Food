@@ -17,6 +17,10 @@
         <activity
             android:name=".Cart"
             android:exported="false">
+
+            <meta-data
+                android:name="com.google.android.geo.AP!"
+                android:value="AIzaSyBgVZXhpQfMBZ8CT2gy11DUxwKKnMK4cKc"/>
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
