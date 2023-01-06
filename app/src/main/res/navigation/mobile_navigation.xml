@@ -9,17 +9,37 @@
         android:id="@+id/nav_home"
         android:name="uk.ac.tees.b1325384.easyfood.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_nav_gallery2"
+            app:destination="@id/nav_gallery" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="uk.ac.tees.b1325384.easyfood.ui.gallery.GalleryFragment"
+        android:name="uk.ac.tees.b1325384.easyfood.ui.gallery.FoodListFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_gallery" >
+        <argument
+            android:name="foodItem"
+            app:argType="uk.ac.tees.b1325384.easyfood.Model.Category" />
+        <action
+            android:id="@+id/action_nav_gallery_to_foodDetailFragment"
+            app:destination="@id/foodDetailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="uk.ac.tees.b1325384.easyfood.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/foodDetailFragment"
+        android:name="uk.ac.tees.b1325384.easyfood.ui.foodDetail.FoodDetailFragment"
+        android:label="fragment_food_detail"
+        tools:layout="@layout/fragment_food_detail" >
+        <argument
+            android:name="foodItem"
+            app:argType="uk.ac.tees.b1325384.easyfood.Model.Food" />
+    </fragment>
 </navigation>

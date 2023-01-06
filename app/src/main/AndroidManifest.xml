@@ -15,23 +15,18 @@
         android:theme="@style/Theme.EasyFood"
         tools:targetApi="31">
         <activity
-            android:name=".Home"
-            android:exported="false"
-            android:label="@string/title_activity_home"
-            android:theme="@style/Theme.EasyFood.NoActionBar">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".SignUp"
+            android:name=".Cart"
             android:exported="false">
+
+            <meta-data
+                android:name="com.google.android.geo.AP!"
+                android:value="AIzaSyBgVZXhpQfMBZ8CT2gy11DUxwKKnMK4cKc"/>
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".SignIn"
+            android:name=".FoodDetail"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -46,6 +41,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".FoodList"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".HomeScreen"
+            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
