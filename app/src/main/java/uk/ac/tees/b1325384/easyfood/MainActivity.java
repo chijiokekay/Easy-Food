@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
                             user.setPhone(edtPhone.getText().toString());//Here we set Phone
                             if (user != null) {
                                 if (user.getPassword().equals(edtPassword.getText().toString())) {
-                                    //Toast.makeText(SignIn.this, "Sign in successfull !", Toast.LENGTH_SHORT).show();
+                                    //Toast.makeText(SignIn.this, "Sign in successful !", Toast.LENGTH_SHORT).show();
                                     {
                                         Intent homeIntent = new Intent(MainActivity.this, HomeScreen.class);
                                         Common.currentUser = user;
