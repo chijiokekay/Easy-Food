@@ -157,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
 
                         //This will now check if the user trying to sign up already exists on the database
                         //using their provided phone number
-                        if (snapshot.child(edtPhone.getText().toString()).exists()) {
+                        if (snapshot.child(edtSignUpPhone.getText().toString()).exists()) {
                             mDialog.dismiss();
                             Toast.makeText(MainActivity.this, "Phone Number Already exists", Toast.LENGTH_SHORT).show();
                         } else {
